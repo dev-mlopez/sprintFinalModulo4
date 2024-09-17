@@ -1,9 +1,9 @@
-import Pokemon from "./class/pokemonClass.js";
+import Pokemon from "../class/pokemonClass.js";
 
 const listaPokemon = [],
     listaNombrePokemon = new Map;
 
-async function obtenerPokemon(url, callback) {
+const obtenerPokemon = async (url, callback) => {
     try {
         const response = await fetch(url);
         if(!response.ok) {
@@ -17,7 +17,7 @@ async function obtenerPokemon(url, callback) {
     }
 }
 
-function crearPokemon(nombrePokemon) {
+const crearPokemon = nombrePokemon => {
     nombrePokemon.forEach(e => {
         const pokemon = new Pokemon(e.name)
         listaNombrePokemon.set(pokemon.getNombrePokemon(), pokemon.getIdPokemon());
@@ -26,14 +26,14 @@ function crearPokemon(nombrePokemon) {
     consultarListaPokemon();
 }
 
-function consultarListaPokemon() {
+const consultarListaPokemon = () => {
     for(const pokemon of listaPokemon) {
         const urlPokemon = `https://pokeapi.co/api/v2/pokemon/${pokemon.getIdPokemon() + 1}`;
         obtenerDatosPokemon(urlPokemon)
     }
 }
 
-async function obtenerDatosPokemon(urlPokemon) {
+const obtenerDatosPokemon = async urlPokemon => {
     try {
         const response = await fetch(urlPokemon);
 
@@ -48,7 +48,7 @@ async function obtenerDatosPokemon(urlPokemon) {
     }
 }
 
-function anadirDatosPokemon(pokemon) {
+const anadirDatosPokemon = pokemon => {
     const idPokemon = listaNombrePokemon.get(pokemon.forms[0].name);
     const idPokedex = pokemon.id;
     const imgPokemon = pokemon.sprites["front_default"];
@@ -57,6 +57,15 @@ function anadirDatosPokemon(pokemon) {
         tipoPokemon.push(tipo.type.name)
     })
     listaPokemon[idPokemon].agregarCaracteristicasPokemon(idPokedex, imgPokemon, tipoPokemon)
+
+    const hpPokemon = pokemon.stats[0].base_stat;
+    const attackPokemon = pokemon.stats[1].base_stat;
+    const defensePokemon = pokemon.stats[2].base_stat;
+    const specialAttackPokemon = pokemon.stats[3].base_stat;
+    const specialDefensePokemon = pokemon.stats[3].base_stat;
+    const speedPokemon = pokemon.stats[3].base_stat;
+
+    listaPokemon[idPokemon].agregarPoderesPokemon(hpPokemon, attackPokemon, defensePokemon, specialAttackPokemon, specialDefensePokemon, speedPokemon);
 }
 
-export {obtenerPokemon, crearPokemon, listaPokemon};
+export {obtenerPokemon, crearPokemon, listaPokemon, listaNombrePokemon};

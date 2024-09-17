@@ -93,6 +93,45 @@ main {
     margin-bottom: 1rem;
 }
 
+#searchForm {
+    display: flex;
+    width: 100%;
+}
+
+#seleccionPokemon,
+#btnBuscarPokemon {
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#seleccionPokemon {
+    margin: 0 auto;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    width: 100%;
+    min-width: 300px;
+    text-align: center;
+    border: 1px solid var(--black-color);
+}
+
+#seleccionPokemon:hover {
+    background-color: var(--secondary-color);
+}
+
+#btnBuscarPokemon {
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: 1px solid var(--black-color);
+    padding-inline: .25rem;
+}
+
+#btnBuscarPokemon:hover {
+    background-color: var(--secondary-color);
+}
+
 .btn {
     background-color: transparent;
     border: none;
@@ -128,6 +167,12 @@ main {
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom right, var(--black-color), var(--primary-color));
+    cursor: pointer;
+}
+
+.cardPokemon:hover {
+    box-shadow: -1px -1px 5px var(--black-color), 1px 1px 5px var(--secondary-color);
+    background: linear-gradient(to bottom right, var(--black-color), var(--secondary-color))
 }
 
 .contenedorImagen {
@@ -160,9 +205,9 @@ main {
 }
 
 .contenedorTipos {
-    position: relative;
     display: flex;
     flex-direction: row;
+    width: 100%;
     gap: 1px;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -179,6 +224,23 @@ main {
 
 .tipo:last-of-type {
     border-bottom-right-radius: 1rem;
+}
+
+#infoPokemon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--black-color);
+    background: linear-gradient(to bottom right, var(--white-color), var(--primary-color));
+    box-shadow: 0 0 3px var(--black-color);
+    border-radius: 1rem;
+    padding: .25rem;
+    text-align: center;
+}
+
+#infoPokemon:hover {
+    background: linear-gradient(to bottom right, var(--white-color), var(--secondary-color));
 }
 
 footer {

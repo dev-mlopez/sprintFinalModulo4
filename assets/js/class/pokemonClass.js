@@ -14,11 +14,28 @@ export default class Pokemon {
         })
     }
 
+    agregarPoderesPokemon = (hp, attack, defense, specialAttack, specialDefense, speed) => {
+        this.hp = hp;
+        this.attack = attack;
+        this.defense = defense;
+        this.specialAttack = specialAttack;
+        this.specialDefense = specialDefense;
+        this.speed = speed;
+    }
+
     getNombrePokemon = () => this.nombrePokemon;
     getIdPokemon = () => this.idPokemon;
+
     getIdPokedex = () => this.idPokedex;
     getImgPokemon = () => this.imgPokemon;
     getTipoPokemon = () => this.tipoPokemon;
+
+    getHpPokemon = () => this.hp;
+    getAttackPokemon = () => this.attack;
+    getDefensePokemon = () => this.defense;
+    getSpecialAttackPokemon = () => this.specialAttack;
+    getSpecialDefensePokemon = () => this.specialDefense;
+    getSpeedPokemon = () => this.speed;
 
     listarTipo = () => {
         let listadoTipo = "";
@@ -29,7 +46,7 @@ export default class Pokemon {
     }
 
     mostrarDatos = ($contenedorCard) => {
-        const $card = document.createElement("div");
+        const $card = document.createElement("button");
         $card.classList.add("cardPokemon");
         $card.innerHTML += `
             <div class="contenedorImagen">
@@ -44,4 +61,7 @@ export default class Pokemon {
         $contenedorCard.appendChild($card);
     }
 
+    mostrarPoderes = () => {
+        console.log(`Nombre: ${this.getNombrePokemon()}, HP ${this.getHpPokemon()}, Attack: ${this.getAttackPokemon()}, Deffense ${this.getDefensePokemon()}, Special-attack ${this.getSpecialAttackPokemon()}, Special-defense ${this.getSpecialDefensePokemon()}, Speed ${this.getSpeedPokemon()}`);
+    }
 }

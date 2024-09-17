@@ -1,4 +1,4 @@
-import { listaPokemon } from "../main.js";
+import { listaPokemon } from "../api/pokeApi.js";
 
 let valor = 1;
 const idPokemon = [

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint Final Modulo 4</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -12,14 +13,18 @@
     </header>
     <nav id="nav">
         <ul>
-            <li><a href="busquedaPorFiltro.html">Buscar por Filtro</a></li>
+            <li><a href="busquedaMasiva.html">Busqueda Masiva</a></li>
         </ul>
     </nav>
     <main id="main">
         <section id="contenedorOpcion">
-            <button id="btnCargar" class="btn" type="button">Cargar</button>
-            <button id="btnCargarMas" class="btn is-active" type="button">Cargar Más</button>
-            <button id="btnBorrarTodo" class="btn is-active" type="button">Borrar todo</button>
+            <form id="searchForm">
+                <select name="seleccionPokemon" id="seleccionPokemon">
+                </select>
+                <button id="btnBuscarPokemon" type="submit">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
         </section>
         <section id="listadoPokemon">
         </section>
@@ -32,7 +37,7 @@
         <p>Estudiante: Mauricio López</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="assets/js/mainBusquedaMasiva.js"></script>
+    <script type="module" src="assets/js/mainBusquedaPorFiltro.js"></script>
     <script type="module" src="assets/js/DOM/graficoDinamico.js"></script>
 </body>
 </html>
